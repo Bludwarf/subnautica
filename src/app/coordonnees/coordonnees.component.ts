@@ -60,7 +60,8 @@ export class CoordonneesComponent implements OnInit {
 
   private setPointCardinalPrecis(pointCardinal: string, ajustementPrecisPointCardinal: number) {
     const pointCardinalEnDegrees = CoordonneesComponent.convertirPointCardinalEnDegres(pointCardinal);
-    this.coordonneesPolaires.theta.enDegres = pointCardinalEnDegrees + ajustementPrecisPointCardinal * AJUSTEMENT_PRECIS_UNITAIRE_EN_DEGRES;
+    this.coordonneesPolaires.theta.enDegres = pointCardinalEnDegrees +
+      this.getSigneAjustementPrecisPointCardinalEnDegrees(pointCardinalEnDegrees) * ajustementPrecisPointCardinal * AJUSTEMENT_PRECIS_UNITAIRE_EN_DEGRES;
     this.coordonneesPolairesChange.emit(this.coordonneesPolaires);
   }
 
