@@ -1,0 +1,15 @@
+Position :
+
+<app-coordonnees [coordonneesPolaires]="position" (changementDeCoordonnees)="position = $event"></app-coordonnees>
+
+<br/>
+
+Observé (relatif) :
+
+<app-coordonnees [coordonneesPolaires]="observeRelatif" (changementDeCoordonnees)="observeRelatif = $event"></app-coordonnees>
+
+<br/>
+
+Observé (absolu) :
+
+<app-coordonnees [coordonneesPolaires]="observeAbsolu"></app-coordonnees>
