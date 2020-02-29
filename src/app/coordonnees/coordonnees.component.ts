@@ -44,8 +44,10 @@ export class CoordonneesComponent implements OnInit {
   }
 
   setPointCardinal() {
-    this.coordonneesPolaires.theta.enDegres = CoordonneesComponent.convertirPointCardinalEnDegrees(this.pointCardinal)
-      + this.pointCardinalPrecis * 45 / 6;
+    const pointCardinalEnDegrees = CoordonneesComponent.convertirPointCardinalEnDegrees(this.pointCardinal);
+    const signeAjustementPrecisPointCardinalEnDegrees = pointCardinalEnDegrees <= 180 ? -1 : 1;
+    this.coordonneesPolaires.theta.enDegres = pointCardinalEnDegrees
+      + signeAjustementPrecisPointCardinalEnDegrees * this.pointCardinalPrecis * 45 / 6;
     this.onChangementDeCoordonnees();
   }
 
