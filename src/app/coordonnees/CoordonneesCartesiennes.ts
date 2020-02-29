@@ -7,14 +7,18 @@ export class CoordonneesCartesiennes {
   }
 
   get coordonneesPolaires(): CoordonneesPolaires {
-    this.thetaEnRadians();
+    const r = Math.sqrt(this.x * this.x + this.y * this.y);
     return new CoordonneesPolaires(
-      Math.sqrt(this.x * this.x + this.y * this.y),
-      new Angle(this.thetaEnRadians()));
+      r,
+      new Angle(this.thetaEnRadians(r)));
   }
 
   // https://wikimedia.org/api/rest_v1/media/math/render/svg/35ae4f0aa943580761ff19eb52585227c26e728f
-  private thetaEnRadians() {
+  private thetaEnRadians(r: number) {
+    if (r === 0) {
+      return 0;
+    }
+
     if (this.x > 0) {
       if (this.y >= 0) {
         return Math.atan(this.y / this.x);
@@ -24,7 +28,9 @@ export class CoordonneesCartesiennes {
     } else if (this.x < 0) {
       return Math.atan(this.y / this.x) + Math.PI;
     } else {
-      if (this.y >= 0) {
+      if (this.y === 0) {
+        return 0;
+      } else if (this.y > 0) {
         return Math.PI / 2;
       } else {
         return 3 * Math.PI / 2;
