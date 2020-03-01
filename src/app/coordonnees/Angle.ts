@@ -14,6 +14,6 @@ export class Angle {
    * @param degrees de 0 à 360
    */
   set enDegres(degrees: number) {
-    this.enRadians = degrees * Math.PI / 180;
+    this.enRadians = degrees % 360 * Math.PI / 180;
   }
 }

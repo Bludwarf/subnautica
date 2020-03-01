@@ -70,4 +70,8 @@ export class CoordonneesComponent implements OnInit {
   onChangementDeCoordonnees() {
     this.coordonneesCylindriquesChange.emit(this.coordonneesCylindriques);
   }
+
+  seRetourner() {
+    this.coordonneesCylindriques.theta.enDegres += 180;
+  }
 }
