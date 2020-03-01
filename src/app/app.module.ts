@@ -7,7 +7,7 @@ import { ConvertisseurComponent } from './convertisseur/convertisseur.component'
 import {FormsModule} from '@angular/forms';
 import { ArrondiPipe } from './arrondi.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonToggleModule} from '@angular/material';
+import {MatButtonModule, MatButtonToggleModule, MatInputModule} from '@angular/material';
 import { CoordonneesComponent } from './coordonnees/coordonnees.component';
 
 @NgModule({
@@ -22,7 +22,9 @@ import { CoordonneesComponent } from './coordonnees/coordonnees.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

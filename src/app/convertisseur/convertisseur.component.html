@@ -1,15 +1,9 @@
-Position :
-
-<app-coordonnees [(coordonneesCylindriques)]="position"></app-coordonnees>
+<app-coordonnees [nom]="'Position'" [(coordonneesCylindriques)]="position"></app-coordonnees>
 
 <br/>
 
-Observé (relatif) :
-
-<app-coordonnees [(coordonneesCylindriques)]="observeRelatif"></app-coordonnees>
+<app-coordonnees [nom]="'Observé (relatif)'" [(coordonneesCylindriques)]="observeRelatif"></app-coordonnees>
 
 <br/>
 
-Observé (absolu) :
-
-<app-coordonnees [coordonneesCylindriques]="observeAbsolu"></app-coordonnees>
+<app-coordonnees [nom]="'Observé (absolu)'" [coordonneesCylindriques]="observeAbsolu"></app-coordonnees>

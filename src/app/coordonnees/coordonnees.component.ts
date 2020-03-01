@@ -52,6 +52,7 @@ export class CoordonneesComponent implements OnInit {
   }
 
   @Input() coordonneesCylindriques: CoordonneesCylindriques;
+  @Input() nom: string;
   @Output() coordonneesCylindriquesChange = new EventEmitter<CoordonneesCylindriques>();
 
   static convertirPointCardinalEnDegres(pointCardinal: string): number {
@@ -60,7 +61,8 @@ export class CoordonneesComponent implements OnInit {
 
   private setPointCardinalPrecis(pointCardinal: string, ajustementPrecisPointCardinal: number) {
     const pointCardinalEnDegrees = CoordonneesComponent.convertirPointCardinalEnDegres(pointCardinal);
-    this.coordonneesCylindriques.theta.enDegres = pointCardinalEnDegrees - ajustementPrecisPointCardinal * AJUSTEMENT_PRECIS_UNITAIRE_EN_DEGRES;
+    this.coordonneesCylindriques.theta.enDegres = pointCardinalEnDegrees
+      - ajustementPrecisPointCardinal * AJUSTEMENT_PRECIS_UNITAIRE_EN_DEGRES;
     this.coordonneesCylindriquesChange.emit(this.coordonneesCylindriques);
   }
 

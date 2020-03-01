@@ -1,14 +1,27 @@
-p: <input type="number" min="0" max="2000" [ngModel]="coordonneesCylindriques.profondeur | arrondi"
-          (ngModelChange)="coordonneesCylindriques.profondeur = $event" (change)="onChangementDeCoordonnees">
-d: <input type="number" min="0" max="2000" [ngModel]="coordonneesCylindriques.distance | arrondi"
-          (ngModelChange)="coordonneesCylindriques.distance = $event" (change)="onChangementDeCoordonnees">
-r: <input type="number" min="0" max="2000" [ngModel]="coordonneesCylindriques.r | arrondi"
-          (ngModelChange)="coordonneesCylindriques.r = $event" (change)="onChangementDeCoordonnees" disabled>
-th: <input type="number" min="0" max="360" [ngModel]="coordonneesCylindriques.theta.enDegres | arrondi"
-           (ngModelChange)="coordonneesCylindriques.theta.enDegres = $event" (change)="onChangementDeCoordonnees" disabled>
-x: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesCylindriques.coordonneesCartesiennes.x | arrondi" disabled>
-y: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesCylindriques.coordonneesCartesiennes.y | arrondi" disabled>
+<h2>{{nom}}</h2>
 
+<mat-form-field>
+  <mat-label>Profondeur</mat-label>
+  <input matInput placeholder="123" type="number" min="0" max="2000"
+         [ngModel]="coordonneesCylindriques.profondeur | arrondi"
+         (ngModelChange)="coordonneesCylindriques.profondeur = $event" (change)="onChangementDeCoordonnees">
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Distance</mat-label>
+  <input matInput placeholder="1234" type="number" min="0" max="2000"
+         [ngModel]="coordonneesCylindriques.distance | arrondi"
+         (ngModelChange)="coordonneesCylindriques.distance = $event" (change)="onChangementDeCoordonnees">
+</mat-form-field>
+
+  r: <input type="number" min="0" max="2000" [ngModel]="coordonneesCylindriques.r | arrondi"
+            (ngModelChange)="coordonneesCylindriques.r = $event" (change)="onChangementDeCoordonnees" disabled>
+th: <input type="number" min="0" max="360" [ngModel]="coordonneesCylindriques.theta.enDegres | arrondi"
+           (ngModelChange)="coordonneesCylindriques.theta.enDegres = $event" (change)="onChangementDeCoordonnees"
+           disabled>
+x: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesCylindriques.coordonneesCartesiennes.x | arrondi"
+          disabled>
+y: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesCylindriques.coordonneesCartesiennes.y | arrondi"
+          disabled>
 
 <br/>
 <mat-button-toggle-group [(ngModel)]="pointCardinal">
@@ -32,4 +45,8 @@ y: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesCylindrique
   <mat-button-toggle value="2">+2</mat-button-toggle>
   <mat-button-toggle value="3">+3</mat-button-toggle>
 </mat-button-toggle-group>
+<br/>
+
+<button mat-stroked-button (click)="seRetourner()">Se retourner</button>
+
 <br/>
