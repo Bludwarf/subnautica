@@ -1,9 +1,13 @@
-r: <input type="number" min="0" max="2000" [ngModel]="coordonneesPolaires.r | arrondi"
-          (ngModelChange)="coordonneesPolaires.r = $event" (change)="onChangementDeCoordonnees">
-th: <input type="number" min="0" max="360" [ngModel]="coordonneesPolaires.theta.enDegres | arrondi"
-           (ngModelChange)="coordonneesPolaires.theta.enDegres = $event" (change)="onChangementDeCoordonnees">
-x: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesPolaires.coordonneesCartesiennes.x | arrondi" disabled>
-y: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesPolaires.coordonneesCartesiennes.y | arrondi" disabled>
+p: <input type="number" min="0" max="2000" [ngModel]="coordonneesCylindriques.profondeur | arrondi"
+          (ngModelChange)="coordonneesCylindriques.profondeur = $event" (change)="onChangementDeCoordonnees">
+d: <input type="number" min="0" max="2000" [ngModel]="coordonneesCylindriques.distance | arrondi"
+          (ngModelChange)="coordonneesCylindriques.distance = $event" (change)="onChangementDeCoordonnees">
+r: <input type="number" min="0" max="2000" [ngModel]="coordonneesCylindriques.r | arrondi"
+          (ngModelChange)="coordonneesCylindriques.r = $event" (change)="onChangementDeCoordonnees" disabled>
+th: <input type="number" min="0" max="360" [ngModel]="coordonneesCylindriques.theta.enDegres | arrondi"
+           (ngModelChange)="coordonneesCylindriques.theta.enDegres = $event" (change)="onChangementDeCoordonnees" disabled>
+x: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesCylindriques.coordonneesCartesiennes.x | arrondi" disabled>
+y: <input type="number" min="-2000" max="2000" [ngModel]="coordonneesCylindriques.coordonneesCartesiennes.y | arrondi" disabled>
 
 
 <br/>

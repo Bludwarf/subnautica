@@ -1,16 +1,17 @@
-import {CoordonneesPolaires} from './CoordonneesPolaires';
+import {CoordonneesCylindriques} from './CoordonneesCylindriques';
 import {Angle} from './Angle';
 
 export class CoordonneesCartesiennes {
 
-  constructor(public x: number, public y: number) {
+  constructor(public x: number, public y: number, public profondeur = 0) {
   }
 
-  get coordonneesPolaires(): CoordonneesPolaires {
+  get coordonneesPolaires(): CoordonneesCylindriques {
     const r = Math.sqrt(this.x * this.x + this.y * this.y);
-    return new CoordonneesPolaires(
+    return new CoordonneesCylindriques(
       r,
-      new Angle(this.thetaEnRadians(r)));
+      new Angle(this.thetaEnRadians(r)),
+      this.profondeur);
   }
 
   // https://wikimedia.org/api/rest_v1/media/math/render/svg/35ae4f0aa943580761ff19eb52585227c26e728f

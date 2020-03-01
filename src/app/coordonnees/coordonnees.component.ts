@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CoordonneesPolaires} from './CoordonneesPolaires';
+import {CoordonneesCylindriques} from './CoordonneesCylindriques';
 
 const POINTS_CARDINAUX = ['E', 'NE', 'N', 'NO', 'O', 'SO', 'S', 'SE', 'E'];
 const POINT_CARDINAL_EN_DEGRE = 45;
@@ -32,7 +32,7 @@ export class CoordonneesComponent implements OnInit {
   }
 
   get pointCardinal(): string {
-    const pointCardinalChiffre = Math.round(this.coordonneesPolaires.theta.enDegres / POINT_CARDINAL_EN_DEGRE);
+    const pointCardinalChiffre = Math.round(this.coordonneesCylindriques.theta.enDegres / POINT_CARDINAL_EN_DEGRE);
     return POINTS_CARDINAUX[pointCardinalChiffre];
   }
 
@@ -43,7 +43,7 @@ export class CoordonneesComponent implements OnInit {
   get ajustementPrecisPointCardinal(): string {
     const pointCardinalEnDegres = CoordonneesComponent.convertirPointCardinalEnDegres(this.pointCardinal);
     const ajustementPrecisEnDegres = normaliserAjustementPrecisEnDegres(
-      pointCardinalEnDegres - this.coordonneesPolaires.theta.enDegres);
+      pointCardinalEnDegres - this.coordonneesCylindriques.theta.enDegres);
     return '' + Math.round(ajustementPrecisEnDegres / AJUSTEMENT_PRECIS_UNITAIRE_EN_DEGRES);
   }
 
@@ -51,8 +51,8 @@ export class CoordonneesComponent implements OnInit {
     this.setPointCardinalPrecis(this.pointCardinal, +pointCardinalPrecis);
   }
 
-  @Input() coordonneesPolaires: CoordonneesPolaires;
-  @Output() coordonneesPolairesChange = new EventEmitter<CoordonneesPolaires>();
+  @Input() coordonneesCylindriques: CoordonneesCylindriques;
+  @Output() coordonneesCylindriquesChange = new EventEmitter<CoordonneesCylindriques>();
 
   static convertirPointCardinalEnDegres(pointCardinal: string): number {
     return POINTS_CARDINAUX.indexOf(pointCardinal) * 45;
@@ -60,14 +60,14 @@ export class CoordonneesComponent implements OnInit {
 
   private setPointCardinalPrecis(pointCardinal: string, ajustementPrecisPointCardinal: number) {
     const pointCardinalEnDegrees = CoordonneesComponent.convertirPointCardinalEnDegres(pointCardinal);
-    this.coordonneesPolaires.theta.enDegres = pointCardinalEnDegrees - ajustementPrecisPointCardinal * AJUSTEMENT_PRECIS_UNITAIRE_EN_DEGRES;
-    this.coordonneesPolairesChange.emit(this.coordonneesPolaires);
+    this.coordonneesCylindriques.theta.enDegres = pointCardinalEnDegrees - ajustementPrecisPointCardinal * AJUSTEMENT_PRECIS_UNITAIRE_EN_DEGRES;
+    this.coordonneesCylindriquesChange.emit(this.coordonneesCylindriques);
   }
 
   ngOnInit() {
   }
 
   onChangementDeCoordonnees() {
-    this.coordonneesPolairesChange.emit(this.coordonneesPolaires);
+    this.coordonneesCylindriquesChange.emit(this.coordonneesCylindriques);
   }
 }

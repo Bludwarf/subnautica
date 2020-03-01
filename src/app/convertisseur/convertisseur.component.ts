@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CoordonneesPolaires} from '../coordonnees/CoordonneesPolaires';
+import {CoordonneesCylindriques} from '../coordonnees/CoordonneesCylindriques';
 
 @Component({
   selector: 'app-convertisseur',
@@ -7,8 +7,8 @@ import {CoordonneesPolaires} from '../coordonnees/CoordonneesPolaires';
   styleUrls: ['./convertisseur.component.scss']
 })
 export class ConvertisseurComponent implements OnInit {
-  position = new CoordonneesPolaires();
-  observeRelatif = new CoordonneesPolaires();
+  position = new CoordonneesCylindriques();
+  observeRelatif = new CoordonneesCylindriques();
 
   constructor() {
   }
@@ -16,7 +16,7 @@ export class ConvertisseurComponent implements OnInit {
   ngOnInit() {
   }
 
-  get observeAbsolu(): CoordonneesPolaires {
+  get observeAbsolu(): CoordonneesCylindriques {
     return this.position.translation(this.observeRelatif);
   }
 }
