@@ -16,4 +16,14 @@ export class Angle {
   set enDegres(degrees: number) {
     this.enRadians = degrees % 360 * Math.PI / 180;
   }
+
+  get oppose(): Angle {
+    const oppose = new Angle(this.enRadians);
+    oppose.enDegres += 180;
+    return oppose;
+  }
+
+  set oppose(oppose: Angle) {
+    this.enDegres = oppose.enDegres + 180;
+  }
 }

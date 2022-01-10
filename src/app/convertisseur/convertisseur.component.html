@@ -1,9 +1,2 @@
-<app-coordonnees [nom]="'Position'" [(coordonneesCylindriques)]="position"></app-coordonnees>
-
-<br/>
-
-<app-coordonnees [nom]="'Observé (relatif)'" [(coordonneesCylindriques)]="observeRelatif"></app-coordonnees>
-
-<br/>
-
-<app-coordonnees [nom]="'Observé (absolu)'" [coordonneesCylindriques]="observeAbsolu"></app-coordonnees>
+<h2>Observé</h2>
+<app-boussole [(theta)]="position.theta.oppose"></app-boussole>

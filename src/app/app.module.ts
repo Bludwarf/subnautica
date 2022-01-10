@@ -9,13 +9,15 @@ import { ArrondiPipe } from './arrondi.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatButtonToggleModule, MatInputModule} from '@angular/material';
 import { CoordonneesComponent } from './coordonnees/coordonnees.component';
+import { BoussoleComponent } from './boussole/boussole.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConvertisseurComponent,
     ArrondiPipe,
-    CoordonneesComponent
+    CoordonneesComponent,
+    BoussoleComponent
   ],
   imports: [
     BrowserModule,

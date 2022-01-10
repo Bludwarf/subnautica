@@ -1,0 +1,9 @@
+#cardinal-group,
+#cardinal-ajustement-precis-group,
+#cardinal-ajustement-tres-precis-group {
+  display: flex;
+
+  * {
+    flex: 1;
+  }
+}
